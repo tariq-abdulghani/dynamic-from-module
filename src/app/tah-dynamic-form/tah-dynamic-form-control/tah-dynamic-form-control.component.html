@@ -1,0 +1,24 @@
+<div [formGroup]="form" class="col-12">
+    <label [attr.for]="control.key" [ngClass]="{'invalid-input-label': !isValid}">{{control.label}}</label>
+  
+    <ng-container [ngSwitch]="control.controlType">
+  
+      <input *ngSwitchCase="'TEXT'" 
+      [formControlName]="control.key" 
+      class="form-control"
+      [id]="control.key" 
+      [type]="control.type" 
+      [ngClass]="{'invalid-input': !isValid}">
+  
+      <select *ngSwitchCase="'DROP_DOWN'" 
+      [id]="control.key"  
+      [formControlName]="control.key"
+      [ngClass]="{'invalid-input': !isValid}" 
+      class="form-control">
+        <option *ngFor="let opt of control.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+  
+    </ng-container>
+  
+    <div class="errorMessage" *ngIf="!isValid">{{control.label}} is required</div>
+  </div>
