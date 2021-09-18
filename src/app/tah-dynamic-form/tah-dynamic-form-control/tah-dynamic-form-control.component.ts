@@ -11,7 +11,7 @@ export class TahDynamicFormControlComponent implements OnInit {
 
   @Input() control!: BaseDynamicFormControl<string>;
   @Input() form!: FormGroup;
-  get isValid() { return this.form.controls[this.control.key].valid; }
+  get isValid() { return this.form.controls[this.control.key].untouched || this.form.controls[this.control.key].valid; }
   
   constructor() { }
 

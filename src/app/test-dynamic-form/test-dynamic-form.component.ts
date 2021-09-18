@@ -36,6 +36,7 @@ export class TestDynamicFormComponent implements OnInit {
       label: 'Email',
       type: 'email',
       weight: 12,
+      required: true
     }),
   ];
 
