@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseDynamicFormControl } from '../tah-dynamic-form/models/base-control';
-import { DropDownControl } from '../tah-dynamic-form/models/drop-down-control';
+import { SelectControl } from '../tah-dynamic-form/models/select-control';
 import { TextControl } from '../tah-dynamic-form/models/text-control';
-import { DynamicFormControlService } from '../tah-dynamic-form/services/dynamic-from-control.service';
 
 @Component({
   selector: 'app-test-dynamic-form',
@@ -11,7 +10,7 @@ import { DynamicFormControlService } from '../tah-dynamic-form/services/dynamic-
 })
 export class TestDynamicFormComponent implements OnInit {
   controls: BaseDynamicFormControl<string>[] = [
-    new DropDownControl({
+    new SelectControl({
       key: 'brave',
       label: 'Bravery Rating',
       options: [
@@ -24,6 +23,7 @@ export class TestDynamicFormComponent implements OnInit {
     }),
 
     new TextControl({
+      type: 'text',
       key: 'firstName',
       label: 'First name',
       value: 'Bombasto',
@@ -38,8 +38,6 @@ export class TestDynamicFormComponent implements OnInit {
       order: 2,
     }),
   ];
-
-  // constructor(private dynamicFormService: DynamicFormControlService) { }
 
   ngOnInit(): void {}
 

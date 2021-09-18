@@ -1,14 +1,13 @@
 export class BaseDynamicFormControl<T> {
     
   value: T | undefined;
-  key: string;
+  key: string; // id and form key
   label: string;
   required: boolean;
-  order: number;
-  controlType: string;
-  type: string;
-  options: { key: string; value: string }[];
+  order: number; // order in display
+  controlType: string; // our custom types
 
+  
   constructor(
     options: {
       value?: T;
@@ -17,8 +16,6 @@ export class BaseDynamicFormControl<T> {
       required?: boolean;
       order?: number;
       controlType?: string;
-      type?: string;
-      options?: { key: string; value: string }[];
     } = {}
   ) {
     this.value = options.value;
@@ -27,7 +24,5 @@ export class BaseDynamicFormControl<T> {
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
     this.controlType = options.controlType || "";
-    this.type = options.type || "";
-    this.options = options.options || [];
   }
 }
