@@ -7,23 +7,20 @@ import { DynamicFormControlService } from '../tah-dynamic-form/services/dynamic-
 @Component({
   selector: 'app-test-dynamic-form',
   templateUrl: './test-dynamic-form.component.html',
-  styleUrls: ['./test-dynamic-form.component.css']
+  styleUrls: ['./test-dynamic-form.component.css'],
 })
 export class TestDynamicFormComponent implements OnInit {
-
-
   controls: BaseDynamicFormControl<string>[] = [
-
     new DropDownControl({
       key: 'brave',
       label: 'Bravery Rating',
       options: [
-        {key: 'solid',  value: 'Solid'},
-        {key: 'great',  value: 'Great'},
-        {key: 'good',   value: 'Good'},
-        {key: 'unproven', value: 'Unproven'}
+        { key: 'solid', value: 'Solid' },
+        { key: 'great', value: 'Great' },
+        { key: 'good', value: 'Good' },
+        { key: 'unproven', value: 'Unproven' },
       ],
-      order: 3
+      order: 3,
     }),
 
     new TextControl({
@@ -31,20 +28,22 @@ export class TestDynamicFormComponent implements OnInit {
       label: 'First name',
       value: 'Bombasto',
       required: true,
-      order: 1
+      order: 1,
     }),
 
     new TextControl({
       key: 'emailAddress',
       label: 'Email',
       type: 'email',
-      order: 2
-    })
+      order: 2,
+    }),
   ];
 
   // constructor(private dynamicFormService: DynamicFormControlService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  onSubmit(event: any) {
+    console.log(event);
+  }
 }

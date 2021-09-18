@@ -28,7 +28,6 @@ export class TahDynamicFormComponent implements OnInit, OnChanges{
   @Output() resetEvent: EventEmitter<any> = new EventEmitter();
 
   form!: FormGroup;
-  payLoad: string = '';
 
   constructor(private formCtrlService: DynamicFormControlService) {}
 
@@ -41,7 +40,6 @@ export class TahDynamicFormComponent implements OnInit, OnChanges{
   }
 
   onSubmit() {
-    this.payLoad = JSON.stringify(this.form.getRawValue());
     this.submitEvent.emit(this.form.getRawValue());
   }
 

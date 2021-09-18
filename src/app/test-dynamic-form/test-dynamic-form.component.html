@@ -2,5 +2,11 @@
 
 <div class="container">
     <h2>TAH Dynamic Form Test</h2>
-    <tah-dynamic-form [controls]="controls"></tah-dynamic-form>
+    <tah-dynamic-form 
+        [controls]="controls" 
+        [showReset]="false" 
+        [submitBtnLabel]="'search'" 
+        [submitBtnWeight]="2"
+        (submitEvent)="onSubmit($event)">
+    </tah-dynamic-form>
 </div>
