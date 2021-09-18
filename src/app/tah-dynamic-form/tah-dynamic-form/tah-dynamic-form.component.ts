@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { templateJitUrl } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { BaseDynamicFormControl } from '../models/base-control';
 import { DynamicFormControlService } from '../services/dynamic-from-control.service';
@@ -13,6 +14,19 @@ export class TahDynamicFormComponent implements OnInit, OnChanges{
 
   
   @Input() controls: BaseDynamicFormControl<string>[] | null = [];
+  @Input() showReset: boolean = true;
+  @Input() resetBtnWeight: number = 3;
+  @Input() resetBtnLabel:string = 'reset';
+  // for further development enable icons
+  // @Input() resetBtnIcon:string='';
+  // @Input() showResetIcon:boolean = true;
+  @Input() submitBtnWeight: number = 3;
+  @Input() submitBtnLabel:string = 'submit';
+  // @Input() submitBtnIcon:string='';
+  // @Input() showSubmitIcon:boolean = true;
+  @Output() submitEvent: EventEmitter<any> = new EventEmitter();
+  @Output() resetEvent: EventEmitter<any> = new EventEmitter();
+
   form!: FormGroup;
   payLoad: string = '';
 
@@ -28,6 +42,10 @@ export class TahDynamicFormComponent implements OnInit, OnChanges{
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
+    this.submitEvent.emit(this.form.getRawValue());
   }
 
+  onReset(){
+    this.resetEvent.emit(this.form.getRawValue());
+  }
 }
