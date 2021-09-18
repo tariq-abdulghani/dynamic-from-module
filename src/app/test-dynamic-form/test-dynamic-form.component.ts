@@ -19,7 +19,7 @@ export class TestDynamicFormComponent implements OnInit {
         { key: 'good', value: 'Good' },
         { key: 'unproven', value: 'Unproven' },
       ],
-      order: 3,
+      weight: 6,
     }),
 
     new TextControl({
@@ -28,14 +28,14 @@ export class TestDynamicFormComponent implements OnInit {
       label: 'First name',
       value: 'Bombasto',
       required: true,
-      order: 1,
+      weight: 6,
     }),
 
     new TextControl({
       key: 'emailAddress',
       label: 'Email',
       type: 'email',
-      order: 2,
+      weight: 12,
     }),
   ];
 

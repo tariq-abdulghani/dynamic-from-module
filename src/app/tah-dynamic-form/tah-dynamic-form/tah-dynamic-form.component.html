@@ -1,16 +1,16 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form" class="row justify-content-start"> 
 
-    <div *ngFor="let control of controls" class="col">
+    <div *ngFor="let control of controls" [class]="'col-'+control.weight">
         <app-tah-dynamic-form-control [control]="control" [form]="form"></app-tah-dynamic-form-control>
     </div>
 
-    <div [class]="'col-'+ submitBtnWeight +' d-flex'">
+    <div [class]="'col-'+ submitBtnWeight +' d-flex' +' mt-4'">
         <button class="btn btn-success w-100 align-self-end" type="submit" [disabled]="!form.valid">
             {{submitBtnLabel}}
         </button>
     </div>
 
-    <div [class]="'col-'+ submitBtnWeight +' d-flex'" *ngIf="showReset">
+    <div [class]="'col-'+ submitBtnWeight +' d-flex' +' mt-4'" *ngIf="showReset">
         <button class="btn btn-success w-100 align-self-end" type="reset" (click)="onReset()">
             {{resetBtnLabel}}
         </button>

@@ -12,7 +12,7 @@ export class TextControl extends BaseDynamicFormControl<string>{
           key?: string;
           label?: string;
           required?: boolean;
-          order?: number;
+          weight?: number;
           controlType?: string;
           
         }
@@ -22,7 +22,7 @@ export class TextControl extends BaseDynamicFormControl<string>{
             key: options.key,
             label: options.label,
             required: options.required,
-            order: options.order,
+            weight: options.weight,
           });
           this.type = options.type;
       }

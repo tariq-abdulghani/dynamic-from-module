@@ -4,7 +4,7 @@ export class BaseDynamicFormControl<T> {
   key: string; // id and form key
   label: string;
   required: boolean;
-  order: number; // order in display
+  weight: number; // weight in bootstrap grid in display
   controlType: string; // our custom types
 
   
@@ -14,7 +14,7 @@ export class BaseDynamicFormControl<T> {
       key?: string;
       label?: string;
       required?: boolean;
-      order?: number;
+      weight?: number;
       controlType?: string;
     } = {}
   ) {
@@ -22,7 +22,7 @@ export class BaseDynamicFormControl<T> {
     this.key = options.key || "";
     this.label = options.label || "";
     this.required = !!options.required;
-    this.order = options.order === undefined ? 1 : options.order;
+    this.weight = options.weight === undefined ? 4: options.weight;
     this.controlType = options.controlType || "";
   }
 }

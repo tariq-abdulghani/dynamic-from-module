@@ -11,7 +11,7 @@ export class SelectControl extends BaseDynamicFormControl<string> {
       key?: string;
       label?: string;
       required?: boolean;
-      order?: number;
+      weight?: number;
       type?: string;
       options?: { key: string; value: string }[];
     } = {}
@@ -21,7 +21,7 @@ export class SelectControl extends BaseDynamicFormControl<string> {
       key: options.key,
       label: options.label,
       required: options.required,
-      order: options.order,
+      weight: options.weight,
     });
     this.options = options.options || [];
   }

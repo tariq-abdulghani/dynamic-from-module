@@ -1,4 +1,4 @@
-<div [formGroup]="form" class="col-12">
+<div [formGroup]="form" class="col-12 mt-2">
     <label [attr.for]="control.key" [ngClass]="{'invalid-input-label': !isValid}">{{control.label}}</label>
   
     <ng-container [ngSwitch]="control.controlType">
