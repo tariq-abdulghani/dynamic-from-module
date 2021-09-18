@@ -9,10 +9,10 @@ export class DynamicFormControlService {
   toFormGroup(controls: BaseDynamicFormControl<string>[]) {
     const group: any = {};
 
-    controls.forEach((question) => {
-      group[question.key] = question.required
-        ? new FormControl(question.value || "", Validators.required)
-        : new FormControl(question.value || "");
+    controls.forEach((control) => {
+      group[control.key] = control.required
+        ? new FormControl(control.value || "", Validators.required)
+        : new FormControl(control.value || "");
     });
     return new FormGroup(group);
   }
