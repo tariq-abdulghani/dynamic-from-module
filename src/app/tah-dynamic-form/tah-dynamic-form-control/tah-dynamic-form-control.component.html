@@ -22,12 +22,14 @@
       [id]="control.key"
       [formControlName]="control.key"
       [ngClass]="{'invalid-input': !isValid}"
-      [multiple]="$any(control).multiple"
+      [multiple]="$any(control).multiple?true:false"
       [size]="$any(control).dropDownSize" 
       class="form-control">
         <option *ngFor="let opt of $any(control)?.options" 
-        [ngValue]="$any(control).bindValue? opt[$any(control).bindValue]: opt">
-          {{opt[$any(control).bindLabel]}}</option>
+        [ngValue]="opt[$any(control).bindValue]? opt[$any(control).bindValue]: opt">
+          {{opt[$any(control).bindLabel]}}
+          {{$any(control).multiple}}
+        </option>
       </select>
   
     </ng-container>

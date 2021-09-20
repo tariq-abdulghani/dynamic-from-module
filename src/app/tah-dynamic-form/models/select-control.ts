@@ -51,12 +51,13 @@ export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
     }
   ) {
     super({
-      value: options.value,
+      // value: options.value as T,
       key: options.key,
       label: options.label,
       required: options.required,
       weight: options.weight,
     });
+    this.value = options.value;
     this.options = options.options || [];
     this.bindValue = options.bindValue;
     this.bindLabel = options.bindLabel;

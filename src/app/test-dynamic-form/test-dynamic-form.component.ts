@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgSelectOption } from '@angular/forms';
 import { BaseDynamicFormControl } from '../tah-dynamic-form/models/base-control';
-import { GenericSelectControl, SelectControl } from '../tah-dynamic-form/models/select-control';
+import { GenericSelectControl } from '../tah-dynamic-form/models/generic-select-control';
+import {SelectControl } from '../tah-dynamic-form/models/select-control';
 import { TextControl } from '../tah-dynamic-form/models/text-control';
+import { SelectOption } from './models/select-options';
 
 @Component({
   selector: 'app-test-dynamic-form',
@@ -9,18 +12,18 @@ import { TextControl } from '../tah-dynamic-form/models/text-control';
   styleUrls: ['./test-dynamic-form.component.css'],
 })
 export class TestDynamicFormComponent implements OnInit {
-  controls: BaseDynamicFormControl<string>[] = [
-    new SelectControl({
-      key: 'brave',
-      label: 'Bravery Rating',
-      options: [
-        { key: 'solid', value: 'Solid' },
-        { key: 'great', value: 'Great' },
-        { key: 'good', value: 'Good' },
-        { key: 'unproven', value: 'Unproven' },
-      ],
-      weight: 6,
-    }),
+  controls: BaseDynamicFormControl<any>[] = [
+    // new SelectControl({
+    //   key: 'brave',
+    //   label: 'Bravery Rating',
+    //   options: [
+    //     { key: 'solid', value: 'Solid' },
+    //     { key: 'great', value: 'Great' },
+    //     { key: 'good', value: 'Good' },
+    //     { key: 'unproven', value: 'Unproven' },
+    //   ],
+    //   weight: 6,
+    // }),
 
     new TextControl({
       type: 'text',
@@ -39,8 +42,8 @@ export class TestDynamicFormComponent implements OnInit {
       required: true
     }),
 
-    new GenericSelectControl<any>({
-      value:undefined,
+    new GenericSelectControl<SelectOption>({
+      value:{ key: 'solid', value: 'Solid' },
       key: 'braveB',
       label: 'Bravery Rating',
       options: [
@@ -52,7 +55,7 @@ export class TestDynamicFormComponent implements OnInit {
       weight: 6,
       bindValue: 'key',
       bindLabel: 'value',
-      multiple: false
+      multiple: true
     })
   ];
 

@@ -9,7 +9,7 @@ import { BaseDynamicFormControl } from '../models/base-control';
 })
 export class TahDynamicFormControlComponent implements OnInit {
 
-  @Input() control!: BaseDynamicFormControl<string>;
+  @Input() control!: BaseDynamicFormControl<any>;
   @Input() form!: FormGroup;
   get isValid() { return this.form.controls[this.control.key].untouched || this.form.controls[this.control.key].valid; }
   
