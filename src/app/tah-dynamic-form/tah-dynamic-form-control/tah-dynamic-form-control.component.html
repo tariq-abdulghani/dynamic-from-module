@@ -23,7 +23,10 @@
       [formControlName]="control.key"
       [ngClass]="{'invalid-input': !isValid}"
       [multiple]="$any(control).multiple?true:false"
-      [size]="$any(control).dropDownSize" 
+      [size]="$any(control).dropDownSize"
+      [compareWith]="$any(control).compareWith"
+      (change)="$any(control).onChange(control.value)"
+      [(ngModel)]="control.value"
       class="form-control">
         <option *ngFor="let opt of $any(control)?.options" 
         [ngValue]="opt[$any(control).bindValue]? opt[$any(control).bindValue]: opt">

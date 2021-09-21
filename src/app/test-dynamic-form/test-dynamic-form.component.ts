@@ -13,17 +13,17 @@ import { SelectOption } from './models/select-options';
 })
 export class TestDynamicFormComponent implements OnInit {
   controls: BaseDynamicFormControl<any>[] = [
-    // new SelectControl({
-    //   key: 'brave',
-    //   label: 'Bravery Rating',
-    //   options: [
-    //     { key: 'solid', value: 'Solid' },
-    //     { key: 'great', value: 'Great' },
-    //     { key: 'good', value: 'Good' },
-    //     { key: 'unproven', value: 'Unproven' },
-    //   ],
-    //   weight: 6,
-    // }),
+    new SelectControl({
+      key: 'brave',
+      label: 'Bravery Rating',
+      options: [
+        { key: 'solid', value: 'Solid' },
+        { key: 'great', value: 'Great' },
+        { key: 'good', value: 'Good' },
+        { key: 'unproven', value: 'Unproven' },
+      ],
+      weight: 6,
+    }),
 
     new TextControl({
       type: 'text',
@@ -53,7 +53,7 @@ export class TestDynamicFormComponent implements OnInit {
         { key: 'unproven', value: 'Unproven' },
       ],
       weight: 6,
-      bindValue: 'key',
+      bindValue: undefined,//'key'
       bindLabel: 'value',
       multiple: true
     })

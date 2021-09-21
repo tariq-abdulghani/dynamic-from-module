@@ -1,5 +1,7 @@
 import { BaseDynamicFormControl } from "./base-control";
+import { compareFn } from "./compare-with";
 import { ControlTypes } from "./control-types";
+import { EventCallBackFn } from "./event-callback";
 
 export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
     controlType = ControlTypes.GENERIC_DROP_DOWN;
@@ -8,6 +10,9 @@ export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
     bindLabel: string | number;
     multiple: boolean ;
     dropDownSize: number;
+    compareWith?: compareFn<T>;
+    onChange?: EventCallBackFn;
+
     constructor(
       options: {
         value?: T;
@@ -21,6 +26,8 @@ export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
         bindLabel: string | number;
         multiple?:boolean;
         dropDownSize?: number;
+        compareWith?: compareFn<T>;
+        onChange?: EventCallBackFn;
       }
     ) {
       super({
@@ -36,5 +43,7 @@ export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
       this.bindLabel = options.bindLabel;
       this.multiple = options.multiple== true? true: false ;
       this.dropDownSize = options.dropDownSize? options.dropDownSize: 0;
+      this.compareWith = options.compareWith?options.compareWith: (a,b)=> true;
+      this.onChange = options.onChange? options.onChange: (ev?:any)=> console.log(ev);
     }
   }
