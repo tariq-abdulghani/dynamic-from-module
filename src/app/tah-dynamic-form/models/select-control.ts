@@ -4,7 +4,7 @@ import { ControlTypes } from "./control-types";
 import { EventCallBackFn } from "./event-callback";
 
 export class SelectControl<T> extends BaseDynamicFormControl<T> {
-    controlType = ControlTypes.GENERIC_DROP_DOWN;
+    controlType = ControlTypes.SELECT;
     options: T[];//{ key: string; value: string }[];
     bindValue: undefined | string;
     bindLabel: string | number;

@@ -3,7 +3,7 @@
   
     <ng-container [ngSwitch]="control.controlType">
   
-      <input *ngSwitchCase="'TEXT'" 
+      <input *ngSwitchCase="CONTROL_TYPES.TEXT" 
       [formControlName]="control.key" 
       class="form-control"
       [id]="control.key" 
@@ -11,15 +11,7 @@
       [(ngModel)]="control.value" 
       [ngClass]="{'invalid-input': !isValid}">
   
-      <!-- <select *ngSwitchCase="'DROP_DOWN'" 
-      [id]="control.key"
-      [formControlName]="control.key"
-      [ngClass]="{'invalid-input': !isValid}"
-      class="form-control">
-        <option *ngFor="let opt of $any(control)?.options" [ngValue]="opt.key">{{opt.value}}</option>
-      </select> -->
-
-      <select *ngSwitchCase="'GENERIC_DROP_DOWN'" 
+      <select *ngSwitchCase="CONTROL_TYPES.SELECT" 
       [id]="control.key"
       [formControlName]="control.key"
       [ngClass]="{'invalid-input': !isValid}"
