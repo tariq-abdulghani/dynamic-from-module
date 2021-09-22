@@ -1,6 +1,6 @@
 
 
-<div class="container">
+<!-- <div class="container">
     <h2>TAH Dynamic Form Test</h2>
     <tah-dynamic-form 
         [controls]="controls" 
@@ -9,4 +9,22 @@
         [submitBtnWeight]="2"
         (submitEvent)="onSubmit($event)">
     </tah-dynamic-form>
+</div> -->
+
+<div class="container">
+    <h2>Ngt Dynamic Form Test</h2>
+    <!-- <tah-dynamic-form 
+        [controls]="controls" 
+        [showReset]="true" 
+        [submitBtnLabel]="'search'" 
+        [submitBtnWeight]="2"
+        (submitEvent)="onSubmit($event)">
+    </tah-dynamic-form> -->
+    <ngt-dynamic-form 
+        [controls]="controls"
+        [showReset]="true" 
+        [submitBtnLabel]="'search'" 
+        [submitBtnWeight]="2"
+        (submitEvent)="onSubmit($event)" 
+    ></ngt-dynamic-form>
 </div>

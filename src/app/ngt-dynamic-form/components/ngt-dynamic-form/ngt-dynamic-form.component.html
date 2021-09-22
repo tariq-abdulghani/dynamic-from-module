@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="row justify-content-start"> 
+
+    <div *ngFor="let control of controls" [class]="'col-'+control.weight">
+        <ngt-control [control]="control" [form]="form"></ngt-control>
+    </div>
+
+    <div [class]="'col-'+ submitBtnWeight +' d-flex' +' mt-1'+' buttons-bottom-padding'">
+        <button class="btn btn-success w-100 align-self-end" type="submit" [disabled]="!form.valid">
+            {{submitBtnLabel}}
+        </button>
+    </div>
+
+    <div [class]="'col-'+ submitBtnWeight +' d-flex' +' mt-1'+' buttons-bottom-padding'" *ngIf="showReset">
+        <button class="btn btn-success w-100 align-self-end" type="reset" (click)="onReset()"[disabled]="form.untouched" >
+            {{resetBtnLabel}}
+        </button>
+    </div>
+</form>

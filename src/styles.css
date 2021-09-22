@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+    --err-div-height: 20px;
+}
+
+.error-div-height{
+    min-height: var(--err-div-height);
+}
+
+.buttons-bottom-padding{
+    padding-bottom: var(--err-div-height)!important;
+}

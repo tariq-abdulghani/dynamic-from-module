@@ -1,0 +1,55 @@
+<div [formGroup]="form" class="col-12 mt-1">
+    <label [attr.for]="control.key" [ngClass]="{'invalid-input-label': control.invalid}">{{control.label}}</label>
+  
+    <ng-container [ngSwitch]="control.controlType">
+  
+      <input *ngSwitchCase="CONTROL_TYPES.TEXT" 
+      [formControlName]="control.key" 
+      class="form-control"
+      [id]="control.key" 
+      [type]="$any(control)?.type"
+      [value]="control.value"
+      [formControl]="control"
+      [ngClass]="{'invalid-input': control.invalid}">
+
+      <!-- <input *ngSwitchCase="CONTROL_TYPES.DATE" 
+      [formControlName]="control.key" 
+      class="form-control"
+      [id]="control.key" 
+      [type]="$any(control)?.type"
+      [min]="$any(control)?.minDate"
+      [max]="$any(control)?.maxDate"
+      [(ngModel)]="control.value"
+      [ngClass]="{'invalid-input': !isValid}"> -->
+  
+      <!-- <select *ngSwitchCase="CONTROL_TYPES.SELECT" 
+      [id]="control.key"
+      [formControlName]="control.key"
+      [ngClass]="{'invalid-input': !isValid}"
+      [multiple]="$any(control).multiple?true:false"
+      [size]="$any(control).dropDownSize"
+      [compareWith]="$any(control).compareWith"
+      (change)="$any(control).onChange(control.value)"
+      [(ngModel)]="control.value"
+      class="form-control">
+        <option *ngFor="let opt of $any(control)?.options" 
+        [ngValue]="opt[$any(control).bindValue]? opt[$any(control).bindValue]: opt">
+          {{opt[$any(control).bindLabel]}}
+        </option>
+      </select> -->
+
+      <!-- <input *ngSwitchCase="CONTROL_TYPES.CHECKBOX" 
+      [formControlName]="control.key" 
+      class="form-check-input"
+      [id]="control.key" 
+      [type]="$any(control)?.type"
+      [checked]="control.value"
+      [(ngModel)]="control.value"
+      (change)="control.value==$any($event).target.checked;" 
+      [ngClass]="{'invalid-input': !isValid}"> -->
+  
+    </ng-container>
+  
+    <div class="error-div-height errorMessage">
+        {{control.invalid? (control.label + 'is required'): ''}} </div>
+  </div>

@@ -1,0 +1,23 @@
+
+
+.errorMessage{
+    color: red;
+    font-size: small;
+}
+
+.invalid-input{
+    border-color: red;
+}
+
+.invalid-input-label{
+    color: red;
+}
+
+
+label.invalid-input-label::before {
+    content: "*";
+  }
+
+.algin-bottom{
+    vertical-align: bottom;
+}
