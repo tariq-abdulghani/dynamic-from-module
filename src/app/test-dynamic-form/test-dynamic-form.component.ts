@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseDynamicFormControl } from '../tah-dynamic-form/models/base-control';
-import { GenericSelectControl } from '../tah-dynamic-form/models/generic-select-control';
+import { SelectControl } from '../tah-dynamic-form/models/select-control';
 import { TextControl } from '../tah-dynamic-form/models/text-control';
 import { SelectOption } from './models/select-options';
 
@@ -41,7 +41,7 @@ export class TestDynamicFormComponent implements OnInit {
       required: true
     }),
 
-    new GenericSelectControl<SelectOption>({
+    new SelectControl<SelectOption>({
       value:[{ key: 'solid', value: 'Solid' }],
       key: 'braveB',
       label: 'Bravery Rating',

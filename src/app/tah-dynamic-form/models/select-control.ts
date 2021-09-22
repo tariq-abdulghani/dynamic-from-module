@@ -3,7 +3,7 @@ import { compareFn } from "./compare-with";
 import { ControlTypes } from "./control-types";
 import { EventCallBackFn } from "./event-callback";
 
-export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
+export class SelectControl<T> extends BaseDynamicFormControl<T> {
     controlType = ControlTypes.GENERIC_DROP_DOWN;
     options: T[];//{ key: string; value: string }[];
     bindValue: undefined | string;
@@ -37,7 +37,6 @@ export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
         required: options.required,
         weight: options.weight,
       });
-    //   this.value = options.value;
       this.options = options.options || [];
       this.bindValue = options.bindValue;
       this.bindLabel = options.bindLabel;
