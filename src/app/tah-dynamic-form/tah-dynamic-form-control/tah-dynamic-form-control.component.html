@@ -37,6 +37,16 @@
           <!-- {{$any(control).multiple}} -->
         </option>
       </select>
+
+      <input *ngSwitchCase="CONTROL_TYPES.CHECKBOX" 
+      [formControlName]="control.key" 
+      class="form-check-input"
+      [id]="control.key" 
+      [type]="$any(control)?.type"
+      [checked]="control.value"
+      [(ngModel)]="control.value"
+      (change)="control.value==$any($event).target.checked;" 
+      [ngClass]="{'invalid-input': !isValid}">
   
     </ng-container>
   

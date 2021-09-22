@@ -19,4 +19,7 @@ export class TahDynamicFormControlComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  log(c?:any){
+    console.log(c);
+  }
 }

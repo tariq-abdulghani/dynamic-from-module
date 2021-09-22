@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseDynamicFormControl } from '../tah-dynamic-form/models/base-control';
+import { CheckboxControl } from '../tah-dynamic-form/models/checkbox-control';
 import { DateControl } from '../tah-dynamic-form/models/date-control';
 import { SelectControl } from '../tah-dynamic-form/models/select-control';
 import { TextControl } from '../tah-dynamic-form/models/text-control';
@@ -42,10 +43,24 @@ export class TestDynamicFormComponent implements OnInit {
       key: 'emailAddress',
       label: 'Email',
       type: 'email',
-      weight: 12,
+      weight: 6,
       required: true
     }),
 
+    new TextControl({
+      key: 'password',
+      label: 'password',
+      type: 'password',
+      weight: 6,
+      required: true
+    }),
+
+    new CheckboxControl({
+      value: false,
+      key: 'delivery',
+      label: 'delivery',
+      weight:2
+    }),
     new SelectControl<SelectOption>({
       value:[{ key: 'solid', value: 'Solid' }],
       key: 'braveB',
