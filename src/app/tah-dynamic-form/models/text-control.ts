@@ -13,8 +13,7 @@ export class TextControl extends BaseDynamicFormControl<string>{
           label?: string;
           required?: boolean;
           weight?: number;
-          controlType?: string;
-          
+          // controlType?: string;
         }
       ){
           super({

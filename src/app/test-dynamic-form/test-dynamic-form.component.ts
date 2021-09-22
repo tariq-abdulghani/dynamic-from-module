@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseDynamicFormControl } from '../tah-dynamic-form/models/base-control';
+import { DateControl } from '../tah-dynamic-form/models/date-control';
 import { SelectControl } from '../tah-dynamic-form/models/select-control';
 import { TextControl } from '../tah-dynamic-form/models/text-control';
 import { SelectOption } from './models/select-options';
@@ -11,18 +12,22 @@ import { SelectOption } from './models/select-options';
 })
 export class TestDynamicFormComponent implements OnInit {
   controls: BaseDynamicFormControl<any>[] = [
-    // new SelectControl({
-    //   value: 'Good',
-    //   key: 'brave',
-    //   label: 'Bravery Rating',
-    //   options: [
-    //     { key: 'solid', value: 'Solid' },
-    //     { key: 'great', value: 'Great' },
-    //     { key: 'good', value: 'Good' },
-    //     { key: 'unproven', value: 'Unproven' },
-    //   ],
-    //   weight: 6,
-    // }),
+
+    new DateControl({
+      key:'birthDate',
+      label:'birthDate',
+      required: true,
+      value: new Date().toISOString().split('T')[0],
+      weight:6
+    }),
+
+    new DateControl({
+      key:'expireDate',
+      label:'expireDate',
+      required: false,
+      value: new Date().toISOString().split('T')[0],
+      weight:6
+    }),
 
     new TextControl({
       type: 'text',

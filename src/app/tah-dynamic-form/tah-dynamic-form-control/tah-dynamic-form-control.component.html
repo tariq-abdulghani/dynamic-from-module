@@ -10,6 +10,16 @@
       [type]="$any(control)?.type"
       [(ngModel)]="control.value" 
       [ngClass]="{'invalid-input': !isValid}">
+
+      <input *ngSwitchCase="CONTROL_TYPES.DATE" 
+      [formControlName]="control.key" 
+      class="form-control"
+      [id]="control.key" 
+      [type]="$any(control)?.type"
+      [min]="$any(control)?.minDate"
+      [max]="$any(control)?.maxDate"
+      [(ngModel)]="control.value"
+      [ngClass]="{'invalid-input': !isValid}">
   
       <select *ngSwitchCase="CONTROL_TYPES.SELECT" 
       [id]="control.key"
