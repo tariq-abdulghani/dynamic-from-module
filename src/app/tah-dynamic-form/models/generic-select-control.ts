@@ -15,7 +15,7 @@ export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
 
     constructor(
       options: {
-        value?: T;
+        value?: T| T[];
         key?: string;
         label?: string;
         required?: boolean;
@@ -43,7 +43,7 @@ export class GenericSelectControl<T> extends BaseDynamicFormControl<T> {
       this.bindLabel = options.bindLabel;
       this.multiple = options.multiple== true? true: false ;
       this.dropDownSize = options.dropDownSize? options.dropDownSize: 0;
-      this.compareWith = options.compareWith?options.compareWith: (a,b)=> true;
+      this.compareWith = options.compareWith?options.compareWith: (a,b) => a == b;
       this.onChange = options.onChange? options.onChange: (ev?:any)=> console.log(ev);
     }
   }

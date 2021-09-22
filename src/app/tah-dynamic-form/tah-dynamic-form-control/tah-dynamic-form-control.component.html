@@ -7,7 +7,8 @@
       [formControlName]="control.key" 
       class="form-control"
       [id]="control.key" 
-      [type]="$any(control)?.type" 
+      [type]="$any(control)?.type"
+      [(ngModel)]="control.value" 
       [ngClass]="{'invalid-input': !isValid}">
   
       <select *ngSwitchCase="'DROP_DOWN'" 
@@ -31,7 +32,7 @@
         <option *ngFor="let opt of $any(control)?.options" 
         [ngValue]="opt[$any(control).bindValue]? opt[$any(control).bindValue]: opt">
           {{opt[$any(control).bindLabel]}}
-          {{$any(control).multiple}}
+          <!-- {{$any(control).multiple}} -->
         </option>
       </select>
   

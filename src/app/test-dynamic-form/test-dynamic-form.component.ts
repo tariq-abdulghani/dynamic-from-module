@@ -14,6 +14,7 @@ import { SelectOption } from './models/select-options';
 export class TestDynamicFormComponent implements OnInit {
   controls: BaseDynamicFormControl<any>[] = [
     new SelectControl({
+      value: 'Good',
       key: 'brave',
       label: 'Bravery Rating',
       options: [
@@ -43,7 +44,7 @@ export class TestDynamicFormComponent implements OnInit {
     }),
 
     new GenericSelectControl<SelectOption>({
-      value:{ key: 'solid', value: 'Solid' },
+      value:[{ key: 'solid', value: 'Solid' }],
       key: 'braveB',
       label: 'Bravery Rating',
       options: [
@@ -55,7 +56,8 @@ export class TestDynamicFormComponent implements OnInit {
       weight: 6,
       bindValue: undefined,//'key'
       bindLabel: 'value',
-      multiple: true
+      multiple: true,
+      compareWith:(a, b) => a.key == b.key
     })
   ];
 
