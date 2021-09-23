@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { NgtCheckboxControl } from '../ngt-dynamic-form/models/checkbox-control';
+import { NgtDateControl } from '../ngt-dynamic-form/models/date.control';
 import { NgtBasicControl } from '../ngt-dynamic-form/models/ngt-basic-control';
 import { NgtSelectControl } from '../ngt-dynamic-form/models/select-control';
 import { NgtTextControl } from '../ngt-dynamic-form/models/text-control';
@@ -80,7 +81,14 @@ export class TestDynamicFormComponent implements OnInit {
     //   value: new Date().toISOString().split('T')[0],
     //   weight:6
     // }),
-
+    new NgtDateControl({
+      formState: null,
+      key:'expiryDate',
+      label:'expiry date',
+      weight: 4,
+      value: new Date().toISOString().split('T')[0],
+      validatorOrOpts:[Validators.required]
+    }),
     // new TextControl({
     //   type: 'text',
     //   key: 'firstName',

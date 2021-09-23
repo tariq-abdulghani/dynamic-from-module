@@ -12,15 +12,17 @@
       [formControl]="control"
       [ngClass]="{'invalid-input': control.invalid}">
 
-      <!-- <input *ngSwitchCase="CONTROL_TYPES.DATE" 
+      <input *ngSwitchCase="CONTROL_TYPES.DATE" 
       [formControlName]="control.key" 
       class="form-control"
       [id]="control.key" 
-      [type]="$any(control)?.type"
+      type="date"
       [min]="$any(control)?.minDate"
       [max]="$any(control)?.maxDate"
-      [(ngModel)]="control.value"
-      [ngClass]="{'invalid-input': !isValid}"> -->
+      [formControl]="control"
+      [ngClass]="{'invalid-input': control.invalid}">
+
+
       <ng-container *ngSwitchCase="CONTROL_TYPES.SELECT">
 
         <select  *ngIf="!$any(control).multiple"
