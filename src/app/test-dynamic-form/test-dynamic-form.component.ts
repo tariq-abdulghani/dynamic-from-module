@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { NgtCheckboxControl } from '../ngt-dynamic-form/models/checkbox-control';
 import { NgtBasicControl } from '../ngt-dynamic-form/models/ngt-basic-control';
 import { NgtSelectControl } from '../ngt-dynamic-form/models/select-control';
 import { NgtTextControl } from '../ngt-dynamic-form/models/text-control';
@@ -96,7 +97,21 @@ export class TestDynamicFormComponent implements OnInit {
     //   weight: 6,
     //   required: true
     // }),
+    new NgtCheckboxControl({
+      value: true,
+      key: 'delivery',
+      label: 'delivery',
+      formState: null,
+      weight:3
+    }),
 
+    new NgtCheckboxControl({
+      value: true,
+      key: 'paid',
+      label: 'paid',
+      formState: null,
+      weight:3
+    })
     // new TextControl({
     //   key: 'password',
     //   label: 'password',

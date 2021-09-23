@@ -57,15 +57,13 @@
   
       
 
-      <!-- <input *ngSwitchCase="CONTROL_TYPES.CHECKBOX" 
+      <input *ngSwitchCase="CONTROL_TYPES.CHECKBOX" 
       [formControlName]="control.key" 
-      class="form-check-input"
+      class="form-check-input ml-2"
       [id]="control.key" 
-      [type]="$any(control)?.type"
-      [checked]="control.value"
-      [(ngModel)]="control.value"
-      (change)="control.value==$any($event).target.checked;" 
-      [ngClass]="{'invalid-input': !isValid}"> -->
+      type="checkbox"
+      [formControl]="control"
+      [ngClass]="{'invalid-input': control.invalid}">
   
     </ng-container>
   
